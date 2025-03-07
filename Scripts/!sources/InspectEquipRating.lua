@@ -3,7 +3,6 @@ local RUNE_SEPARATED_MODE = 2
 local RUNE_AVERAGE_MODE = 3
 
 local m_myMainForm = nil
-local m_template = nil
 local m_runeTxtWidget = nil
 local m_gsTxtWidget = nil
 local m_fairyTxtWidget = nil
@@ -117,8 +116,7 @@ function ShowGearScore(aParams)
 end
 
 function Init()
-	m_template = getChild(mainForm, "Template")
-	setTemplateWidget(m_template)
+	setTemplateWidget("common")
 	m_myMainForm =  mainForm:GetChildChecked("MainPanel", false)
 	DnD.Init(m_myMainForm, m_myMainForm, true)
 	if common.IsOnPayToPlayShard() then
@@ -134,6 +132,9 @@ function Init()
 	m_gsTxtWidget = createWidget(m_myMainForm, "runeHeader", "TextView", nil, nil, 70, 25, 70, 9)
 	m_fairyTxtWidget = createWidget(m_myMainForm, "runeHeader", "TextView", nil, nil, 70, 25, 33, 9)
 	
+	priority(m_runeTxtWidget, 1)
+	priority(m_gsTxtWidget, 1)
+	priority(m_fairyTxtWidget, 1)
 	
 	hide(mainForm)
 	
