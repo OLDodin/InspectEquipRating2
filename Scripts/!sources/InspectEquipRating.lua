@@ -38,8 +38,7 @@ function OnSlashCommand(aParams)
 	end
 
 	if handled then
-		common.StateUnloadManagedAddon( "UserAddon/InspectEquipRating2" )
-		common.StateLoadManagedAddon( "UserAddon/InspectEquipRating2" )
+		common.StateReloadManagedAddon(common.GetAddonSysName())
 	end
 end
 
